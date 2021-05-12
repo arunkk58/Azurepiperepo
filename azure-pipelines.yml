@@ -8,7 +8,13 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Free Trial(162b6007-f67c-4d55-ac97-537956b0ab0b)'
+    appType: 'webApp'
+    appName: 'newpipelinetimer'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
